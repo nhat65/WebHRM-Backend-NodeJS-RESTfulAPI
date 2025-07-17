@@ -48,8 +48,8 @@ export const identifier = (
 
   try {
     const decoded = jwt.verify(token, process.env.TOKEN_SECRET) as JwtPayload;
-    req.user = decoded; 
-    next(); 
+    req.user = decoded;
+    next();
   } catch (error: any) {
     console.log('Identifier error: ' + error.message);
     res.status(401).json({ success: false, message: 'Invalid token' });
